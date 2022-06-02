@@ -1,4 +1,8 @@
 @include('app.app', ['title' => 'Sertifikasi'])
+
+@php
+    use App\Models\Pengaturan;
+@endphp
 <!-- BEGIN: Header-->
 <ul class="main-search-list-defaultlist-other-list d-none">
     <li class="auto-suggestion justify-content-between"><a
@@ -79,28 +83,10 @@
                                             <input type="text" class="form-control" value="{{$pelatihanid->biaya}}" id="disabledInput" disabled="">
                                         </div>
                                     </div>
-                                    <div class="col-xl-4 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="disabledInput">Kategori</label>
-                                            <input type="text" class="form-control" value="{{$pelatihanid->kategori}}" id="disabledInput" disabled="">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="disabledInput">Visibilitas</label>
-                                            <input type="text" class="form-control" value="{{$pelatihanid->visible}}" id="disabledInput" disabled="">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="disabledInput">Info Rekening</label>
-                                            <input type="text" class="form-control" value="{{$pelatihanid->id_rek}}" id="disabledInput" disabled="">
-                                        </div>
-                                    </div>
                             </div>
                             </div>
                         </div>
-                        <div class="row match-height">
+                        <div class="row">
                             <!-- Centered Aligned Tabs starts -->
                             <div class="col-xl-6 col-lg-12">
                               <div class="card">
@@ -563,6 +549,54 @@
 
                             <!-- Tabs Aligned at End starts -->
                             <div class="col-md-6">
+                                @if ($pelatihanid->biaya != 0)
+                                <div class="card bg-warning">
+                                    <div class="card-header">
+                                      <h4 class="card-title text-white">Informasi Pembayaran</h4>
+                                    </div>
+                                    <div class="card-body">
+                                      <form class="form form-horizontal">
+                                        <div class="row">
+                                          <div class="col-12">
+                                            <div class="mb-1 row">
+                                              <div class="col-sm-3">
+                                                <label class="col-form-label text-white" for="contact-icon">Nomor Rekening</label>
+                                              </div>
+                                              <div class="col-sm-9">
+                                                <div class="input-group input-group-merge">
+                                                  <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-smartphone"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></span>
+                                                  <input type="text" id="contact-icon" value="{{ Pengaturan::where('id', $pelatihanid->id_rek)->first()->norek}}  ({{Pengaturan::where('id', $pelatihanid->id_rek)->first()->bank}})" class="form-control" name="contact-icon" placeholder="Nomor Rekening" disabled>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-12">
+                                            <div class="mb-1 row">
+                                              <div class="col-sm-3">
+                                                <label class="col-form-label text-white" for="pass-icon" >Nama Rekening</label>
+                                              </div>
+                                              <div class="col-sm-9">
+                                                <div class="input-group input-group-merge">
+                                                  <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>
+                                                  <input type="text" value="{{ Pengaturan::where('id', $pelatihanid->id_rek)->first()->namarek}}" id="pass-icon" class="form-control" name="contact-icon" disabled="">
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-9 offset-sm-3">
+                                            <div class="mb-1">
+                                                <label class="form-check-label text-white" for="customCheck2">Silahkan Konfirmasi Pembayaran Anda di sini</label>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-9 offset-sm-3">
+                                            <button type="reset" class="btn btn-primary me-1 waves-effect waves-float waves-light">Konfirmasi</button>
+                                          </div>
+                                        </div>
+                                      </form>
+                                    </div>
+                                  </div>
+                                @endif
+
                                 <div class="card">
                                   <div class="card-header">
                                     <h4 class="card-title">Daftar Pendaftar</h4>
