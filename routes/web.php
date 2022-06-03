@@ -32,6 +32,7 @@ Route::group(['middleware'=>['auth']], function(){
     Route::post('pelatihan/store', [PelatihanController::class, 'store']);
     Route::post('pelatihan/edit', [PelatihanController::class, 'edit']);
     Route::get('pelatihan/view/{id}', [PelatihanController::class, 'indexpeserta']);
+    Route::get('pelatihan/destroy/{id}', [PelatihanController::class, 'destroy']);
 
     Route::get('status/terima/{id}', [PelatihanController::class, 'terima']);
     Route::get('status/tolak/{id}', [PelatihanController::class, 'tolak']);

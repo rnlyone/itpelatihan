@@ -17,7 +17,6 @@
   <!-- BEGIN: Theme JS-->
   <script src="{{asset('app-assets/js/core/app-menu.min.js')}}"></script>
   <script src="{{asset('app-assets/js/core/app.min.js')}}"></script>
-  <script src="{{asset('app-assets/js/scripts/customizer.min.js')}}"></script>
   <script src="{{asset('app-assets/vendors/js/tables/datatable/jquery.dataTables.min.js')}}"></script>
   <script src="{{asset('app-assets/vendors/js/tables/datatable/datatables.buttons.min.js')}}"></script>
   <script src="{{asset('app-assets/vendors/js/tables/datatable/dataTables.bootstrap5.min.js')}}"></script>

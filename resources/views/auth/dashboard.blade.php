@@ -267,6 +267,32 @@
 </div>
 @endforeach
 
+@foreach ($pelatihandata as $ald)
+    <div class="modal fade modal-danger text-start" id="modaldel{{$ald->id}}" tabindex="-1"
+    aria-labelledby="myModalLabel120" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel120">Tetap Hapus Pelatihan?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="card-text mb-0">
+                    <span class="text-danger"><b>Peringatan!!</b></span>, Apabila Anda Menghapus Tahun
+                    Ajaran, Maka Semua Pendaftar yang berkaitan dengan Pelatihan tersebut akan
+                    dihapus.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-danger" href="/pelatihan/destroy/{{$ald->id}}">Tetap Hapus</a>
+            </div>
+        </div>
+    </div>
+    </div>
+@endforeach
+
+
 @include('app.auth.footer')
 
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
