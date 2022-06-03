@@ -64,7 +64,7 @@
                                             {{$desc}}...
                                         </p>
                                         <p class="mt-2">
-                                        <span class="fw-bolder">Batas Pendaftaran : </span>{{$p->batas}}<br>
+                                        <span class="fw-bolder">Batas Pendaftaran : </span>{{$p->batas_daftar}}<br>
                                         <span class="fw-bolder">Tanggal Mulai : </span>{{$p->tgl_mulai}}<br>
                                         <span class="fw-bolder">Tanggal Selesai : </span>{{$p->tgl_akhir}}<br>
                                         <span class="fw-bolder">Biaya : </span>{{$p->biaya}} &nbsp; <span class="fw-bolder">||</span> &nbsp;
