@@ -155,9 +155,9 @@ class PelatihanController extends Controller
                     'id_rek' => $req->rekening
                 ]);
             } else {
-                $req->validate([
-                    'foto' => 'mimes:png,jpg,jpeg|dimensions:min_width=800,min_height=550' //memvalidasi image yang diinputkan
-                ]);
+                // $req->validate([
+                //     'foto' => 'mimes:png,jpg,jpeg' //memvalidasi image yang diinputkan
+                // ]);
                 Pelatihan::where('id', $req->idedit)->update([
                     'nama' => $req->nama,
                     'deskripsi' => $req->deskripsi,
@@ -174,7 +174,7 @@ class PelatihanController extends Controller
             }
             return back()->with('success', 'Edit Pelatihan Sukses');
         } catch (Exception $e) {
-            dd($req->deskripsi);
+            dd($e);
             return back()->with('error', 'Edit Pelatihan Gagal');
         }
     }
