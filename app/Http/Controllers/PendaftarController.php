@@ -36,7 +36,7 @@ class PendaftarController extends Controller
     public function store(Request $r)
     {
         $r->validate([
-            'foto' => 'mimes:png,jpg,jpeg|dimensions:width=480,height=640'
+            'foto' => 'mimes:png,jpg,jpeg|dimensions:ratio=3/4'
         ]);
 
         $imgName = $r->foto->getClientOriginalName() . '-' . time() . '.' . $r->foto->extension();

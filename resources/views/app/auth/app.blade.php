@@ -62,6 +62,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
     <!-- END: Custom CSS-->
 

@@ -22,12 +22,10 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Pelatihan Yang Terbuka</h2>
+                        <h2 class="content-header-title float-start mb-0">Kegiatan Yang Terbuka</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="/">M-Technolabs</a>
-                                </li>
-                                <li class="breadcrumb-item active"><a href="#">Sertifikasi</a>
+                                <li class="breadcrumb-item">Kegiatan
                                 </li>
                             </ol>
                         </div>
@@ -49,7 +47,6 @@
                                     <img class="card-img-top" src="image/{{$p->foto}}" alt="Gambar Sertifikasi">
                                     <div class="card-body">
                                         <h4 class="card-title">{{$p->nama}}</h4>
-                                        <p class="card-text">
                                             @php
                                             $arr = str_split($p->deskripsi);
                                             $desc = '';
@@ -61,8 +58,7 @@
 
                                             $daftarcount = Pendaftar::all()->where('id_pelatihan', $p->id)->count();
                                             @endphp
-                                            {{$desc}}...
-                                        </p>
+                                            <p>{{strip_tags($desc)}}...</p>
                                         <p class="mt-2">
                                         <span class="fw-bolder">Batas Pendaftaran : </span>{{$p->batas_daftar}}<br>
                                         <span class="fw-bolder">Tanggal Mulai : </span>{{$p->tgl_mulai}}<br>
@@ -89,9 +85,11 @@
                                         <div class="modal-body">
                                             <img class="card-img-top" src="image/{{$p->foto}}" alt="Gambar Sertifikasi">
                                             <h4 class="card-title mt-1">{{$p->nama}}</h4>
-                                            <p class="card-text">
+                                            <div class="hdesc-content" hidden>
                                                 {{$p->deskripsi}}
-                                            </p>
+                                            </div>
+                                            <div class="desc-content">
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
                                             <a href="daftar/{{$p->id}}" class="btn btn-primary">Daftar</a>
@@ -249,4 +247,20 @@
 <div class="sidenav-overlay"></div>
 <div class="drag-target"></div>
 
+<script>
+
+</script>
+
 @include('app.footer')
+
+<script>
+    $(document).ready( function () {
+        var strh = $(".hdesc-content");
+        var str = $(".desc-content");
+        for (let index = 0; index < str.length; index++) {
+            var objh = $(strh[index]);
+            var obj = $(str[index]);
+            obj.html(objh.text());
+        }
+        });
+</script>

@@ -25,11 +25,11 @@
                         <h2 class="content-header-title float-start mb-0">Daftar {{$pelatihanid->nama}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="/">M-Technolabs</a>
+                                <li class="breadcrumb-item"><a href="/">Kegiatan</a>
                                 </li>
-                                <li class="breadcrumb-item active"><a href="/">Sertifikasi</a>
+                                <li class="breadcrumb-item active"><a href="/daftar/{{$pelatihanid->id}}">{{$pelatihanid->nama}}</a>
                                 </li>
-                                <li class="breadcrumb-item active"><a href="#">{{$pelatihanid->nama}}</a>
+                                <li class="breadcrumb-item">Daftar
                                 </li>
                             </ol>
                         </div>
@@ -41,51 +41,6 @@
             <section id="dashboard-ecommerce">
                 <div class="row match-height">
                     <section id="card-demo-example">
-                        <div class="card">
-                            <div class="card-header">
-                            <h4 class="card-title">Info Pelatihan</h4>
-                            </div>
-                            <div class="card-body">
-                            <div class="row">
-                                <div class="col-xl-4 col-md-6 col-12">
-                                    <div class="mb-1">
-                                        <label class="form-label" for="disabledInput">Nama Pelatihan</label>
-                                        <input type="text" class="form-control" value="{{$pelatihanid->nama}}" id="disabledInput" disabled="">
-                                    </div>
-                                </div>
-                                    <div class="col-xl-4 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="disabledInput">Batas Pendaftaran</label>
-                                            <input type="text" class="form-control" value="{{$pelatihanid->batas_daftar}}" id="disabledInput" disabled="">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="disabledInput">Tanggal Mulai</label>
-                                            <input type="text" class="form-control" value="{{$pelatihanid->tgl_mulai}}" id="disabledInput" disabled="">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="disabledInput">Tanggal Selesai</label>
-                                            <input type="text" class="form-control" value="{{$pelatihanid->tgl_akhir}}" id="disabledInput" disabled="">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="disabledInput">Kuota</label>
-                                            <input type="text" class="form-control" value="{{$pelatihanid->kuota}} Orang" id="disabledInput" disabled="">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="disabledInput">Biaya</label>
-                                            <input type="text" class="form-control" value="{{$pelatihanid->biaya}}" id="disabledInput" disabled="">
-                                        </div>
-                                    </div>
-                            </div>
-                            </div>
-                        </div>
                         <div class="row">
                             <!-- Centered Aligned Tabs starts -->
                             <div class="col-xl-6 col-lg-12">
@@ -236,7 +191,7 @@
                                             </div>
 
                                             <div class="mb-1">
-                                                <label class="form-label" for="basicSelect">Program Studi</label>
+                                                <label class="form-label" for="basicSelect">Agama</label>
                                                 <select class="form-select prodiselect" id="basicSelect" name="agama" required>
                                                     <option value="">Pilih Agama</option>
                                                     <option value="Islam">Islam</option>
@@ -358,6 +313,7 @@
                                                     <option value="FPIK">Fakultas Perikanan & Ilmu Kelautan</option>
                                                     <option value="S2">Pascasarjana S2</option>
                                                     <option value="S3">Pascasarjana S3</option>
+                                                    <option value="Lembaga">Biro & Lembaga UMI</option>
                                                 </select>
                                             </div>
 
@@ -447,10 +403,38 @@
                                                     <option value="Pendidikan Kedokteran Gigi">Pendidikan Kedokteran Gigi</option>
                                                     <option value="Profesi Dokter Gigi">Profesi Dokter Gigi</option>
                                                 </select>
+                                                <select class="form-select prodiselect" id="S2" name="prodi" disabled hidden required>
+                                                    <option value="">Pilih Program Studi (S2)</option>
+                                                    <option value="Magister Manajemen">Magister Manajemen</option>
+                                                    <option value="Magister Ilmu Hukum">Magister Ilmu Hukum</option>
+                                                    <option value="Magister Pendidikan Agama Islam">Magister Pendidikan Agama Islam</option>
+                                                    <option value="Magister Akuntansi">Magister Akuntansi</option>
+                                                    <option value="Magister Ilmu Ekonomi">Magister Ilmu Ekonomi</option>
+                                                    <option value="Magister MPTK">Magister MPTK</option>
+                                                    <option value="Magister Teknik Kimia">Magister Teknik Kimia</option>
+                                                    <option value="Magister Agroteknologi">Magister Agroteknologi</option>
+                                                    <option value="Magister Teknik Sipil">Magister Teknik Sipil</option>
+                                                    <option value="Magister Kesehatan Masyarakat">Magister Kesehatan Masyarakat</option>
+                                                    <option value="Magister Teknik Mesin">Magister Teknik Mesin</option>
+                                                </select>
+                                                <select class="form-select prodiselect" id="S3" name="prodi" disabled hidden required>
+                                                    <option value="">Pilih Program Studi (S3)</option>
+                                                    <option value="Doktor Ilmu Manajemen">Doktor Ilmu Manajemen</option>
+                                                    <option value="Doktor Ilmu Hukum">Doktor Ilmu Hukum</option>
+                                                    <option value="Doktor Manajemen Pendidikan Islam">Doktor Manajemen Pendidikan Islam</option>
+                                                </select>
+                                                <select class="form-select prodiselect" id="Lembaga" name="prodi" disabled hidden required>
+                                                    <option value="">Pilih Lembaga</option>
+                                                    <option value="LEMBAGA PENJAMINAN MUTU (LPM)">LEMBAGA PENJAMINAN MUTU (LPM)</option>
+                                                    <option value="LEMBAGA PENELITIAN PEMANFAATAN & SUMBERDAYA (LP2S)">LEMBAGA PENELITIAN PEMANFAATAN & SUMBERDAYA (LP2S)</option>
+                                                    <option value="LEMBAGA PENGABDIAN kepada MASYARAKAT (LPKM)">LEMBAGA PENGABDIAN kepada MASYARAKAT (LPKM)</option>
+                                                    <option value="Biro Administrasi Umum dan Personalia">Biro Administrasi Umum dan Personalia</option>
+                                                    <option value="Lainnya">Lainnya</option>
+                                                </select>
                                             </div>
 
                                             <div class="mb-1">
-                                                <label class="form-label" for="basicSelect">Program Studi</label>
+                                                <label class="form-label" for="basicSelect">Agama</label>
                                                 <select class="form-select prodiselect" id="basicSelect" name="agama" required>
                                                     <option value="">Pilih Agama</option>
                                                     <option value="Islam">Islam</option>
@@ -596,42 +580,6 @@
                                     </div>
                                   </div>
                                 @endif
-
-                                <div class="card">
-                                  <div class="card-header">
-                                    <h4 class="card-title">Daftar Pendaftar</h4>
-                                  </div>
-                                  <div class="card-body">
-                                    <table class="datatables-basic table" id="daftarpendaftar">
-                                        <thead>
-                                          <tr>
-                                            <th>No.</th>
-                                            <th>Name</th>
-                                            <th>Fakultas</th>
-                                            <th>Status</th>
-                                          </tr>
-                                        </thead>
-                                      <tbody>
-                                          @foreach ($pendaftar as $index => $p)
-                                            <tr>
-                                                <td>{{$index+1}}</td>
-                                                <td>{{$p->nama}}</td>
-                                                <td>{{$p->fakultas}}</td>
-                                                <td>
-                                                    @if ($p->status == 'belum_konfirmasi')
-                                                        <span class="badge bg-secondary">Belum</span>
-                                                        @elseif ($p->status == 'diterima')
-                                                        <span class="badge bg-success">Diterima</span>
-                                                        @else
-                                                        <span class="badge bg-danger">Ditolak</span>
-                                                    @endif
-                                                </td>
-                                            </tr>
-                                          @endforeach
-                                      </tbody>
-                                    </table>
-                                  </div>
-                                </div>
                               </div>
                             <!-- Tabs Aligned at End ends -->
                           </div>
@@ -712,6 +660,15 @@
       }
       else if(sel1.val() === 'FPIK'){//Checks the select value
         dselect($('select[id="FPIK"]'));
+      }
+      else if(sel1.val() === 'S2'){//Checks the select value
+        dselect($('select[id="S2"]'));
+      }
+      else if(sel1.val() === 'S3'){//Checks the select value
+        dselect($('select[id="S3"]'));
+      }
+      else if(sel1.val() === 'Lembaga'){//Checks the select value
+        dselect($('select[id="Lembaga"]'));
       }
       else if(sel1.val() === ''){//Checks the select value
         dselect($('select[id="activeprodi"]'));

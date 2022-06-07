@@ -172,9 +172,10 @@ class PelatihanController extends Controller
                     'id_rek' => $req->rekening
                 ]);
             }
-            return back()->with('success', 'Kriteria Berhasil Diedit.');
+            return back()->with('success', 'Edit Pelatihan Sukses');
         } catch (Exception $e) {
-            return back()->with('error', 'Maaf, ID Telah Tersedia');
+            dd($req->deskripsi);
+            return back()->with('error', 'Edit Pelatihan Gagal');
         }
     }
 
@@ -201,6 +202,14 @@ class PelatihanController extends Controller
         Pendaftar::where('id_pelatihan', $id)->delete();
         Pelatihan::where('id', $id)->delete();
         return back()->with('success', 'Pelatihan Berhasil Dihapus.');
+    }
+
+    public function detail($id)
+    {
+        // $id = 1;
+        $pelatihanid = Pelatihan::where('visible', 1)->where('id', $id)->first();
+        $pendaftar = Pendaftar::where('id_pelatihan', $id)->get();
+        return view('detail', ['pelatihanid' => $pelatihanid, 'pendaftar' => $pendaftar]);
     }
 
     public function daftar($id)

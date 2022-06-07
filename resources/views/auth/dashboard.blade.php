@@ -87,7 +87,7 @@
                 <h4 class="modal-title" id="myModalLabel1">Tambah Pelatihan</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="pelatihan/store" method="post" enctype="multipart/form-data" class="needs-validation">
+            <form id="inputpelatihan" action="pelatihan/store" method="post" enctype="multipart/form-data" class="needs-validation">
                 @csrf
                 <div class="modal-body">
                     <label>Nama Pelatihan: </label>
@@ -132,14 +132,15 @@
 
                     <label>Deskripsi: </label>
                     <div class="mb-1">
-                        <textarea name="deskripsi" class="form-control" id="deskripsipelatihan" cols="30" rows="10">{{old('deskripsi')}}</textarea>
+                        <input id="inputdeskripsiinput" type="hidden" name="deskripsi" class="form-control" id="deskripsipelatihan">
+                        <div id="input-deskripsi" style="min-height: 160px;">{{old('deskripsi')}}</div>
                     </div>
 
                     <label>Rekening Pembayaran: </label>
                     <div class="mb-1">
                         <select class="form-select" name="rekening" id="basicSelect">
                             @foreach ($rekening as $r)
-                                <option value="{{$r->id}}">{{$r->bank}} || {{$r->name}}</option>
+                                <option value="{{$r->id}}">{{$r->bank}} || {{$r->namarek}}</option>
                             @endforeach
                           </select>
                     </div>
@@ -180,7 +181,7 @@
                 <h4 class="modal-title" id="myModalLabel1">Edit Pelatihan</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="pelatihan/edit" enctype="multipart/form-data" method="post">
+            <form class="editpelatihan" action="pelatihan/edit" enctype="multipart/form-data" method="post">
                 @csrf
                 <div class="modal-body">
                     <input type="text" name="idedit" placeholder="Id Alternatif" value="{{$ald->id}}" class="form-control" hidden>
@@ -226,8 +227,10 @@
 
                     <label>Deskripsi: </label>
                     <div class="mb-1">
-                        <textarea name="deskripsi" class="form-control" id="deskripsipelatihan" cols="30" rows="10">{{$ald->deskripsi}}</textarea>
+                        <input class="editdeskripsiinput" id="editdeskripsiinput" type="hidden" name="deskripsi" class="form-control" id="deskripsipelatihan">
+                        <div class="edit-deskripsi" id="edit-deskripsi" style="min-height: 160px;">{{$ald->deskripsi}}</div>
                     </div>
+
                     <label>Rekening Pembayaran: </label>
                     <div class="mb-1">
                         <select class="form-select" name="rekening" id="basicSelect">
@@ -236,7 +239,7 @@
                                     @if ($ald->id_rek == $r->id)
                                         selected
                                     @endif
-                                    >{{$r->bank}} || {{$r->name}}</option>
+                                    >{{$r->bank}} || {{$r->namarek}}</option>
                             @endforeach
                           </select>
                     </div>
@@ -298,6 +301,58 @@
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script src="{{asset('app-assets/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js')}}"></script>
 <script src="{{asset('app-assets/js/scripts/forms/form-number-input.min.js')}}"></script>
+
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+			<script>
+				var quill = new Quill('#input-deskripsi', {
+                    modules: {
+                        toolbar: [
+                        ['bold', 'italic'],
+                        ['link', 'blockquote', 'code-block', 'image'],
+                        [{ list: 'ordered' }, { list: 'bullet' }]
+                        ]
+                    },
+                    placeholder: 'Compose an epic...',
+                    theme: 'snow'
+                });
+                var form = document.querySelector("form[id='inputpelatihan']");
+                form.onsubmit = function() {
+                // Populate hidden form on submit
+                var about = document.querySelector('input[id=inputdeskripsiinput]');
+                about.value = quill2.root.innerHTML;
+
+                console.log("Submitted", $(form).serialize(), $(form).serializeArray());
+            };
+			</script>
+            <script>
+                var quills = $(".edit-deskripsi");
+                var forms = $(".editpelatihan");
+                var inputs = $(".editdeskripsiinput");
+				for (let index = 0; index < quills.length; index++) {
+                    var quilledit = new Quill(quills[index], {
+                    modules: {
+                        toolbar: [
+                        ['bold', 'italic'],
+                        ['link', 'blockquote', 'code-block', 'image'],
+                        [{ list: 'ordered' }, { list: 'bullet' }]
+                        ]
+                    },
+                    placeholder: 'Compose an epic...',
+                    theme: 'snow'
+                });
+                forms[index].onsubmit = function() {
+                // Populate hidden form on submit
+                inputs[index].value = quilledit.root.innerHTML;
+                }
+
+                var textquill = $(quills[index]);
+                var texts = $(quills[index]);
+                textquill.html(texts.text());
+
+                console.log("Submitted", $(form).serialize(), $(form).serializeArray());
+            };
+			</script>
+
 <script>
     $(document).ready(function () {
             $.ajaxSetup({
@@ -341,3 +396,4 @@
             })
         });
 </script>
+

@@ -47,4 +47,5 @@ Route::get('/', function () {
 });
 
 Route::post('daftar/store', [PendaftarController::class, 'store']);
-Route::get('daftar/{id}', [PelatihanController::class, 'daftar']);
+Route::get('daftar/{id}', [PelatihanController::class, 'detail']);
+Route::get('regis/{id}', [PelatihanController::class, 'daftar']);
