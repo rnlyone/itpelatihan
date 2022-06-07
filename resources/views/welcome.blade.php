@@ -22,7 +22,7 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Kegiatan Yang Terbuka</h2>
+                        <h2 class="content-header-title float-start mb-0">Pelatihan IT Fundamental</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">Kegiatan
@@ -58,16 +58,15 @@
 
                                             $daftarcount = Pendaftar::all()->where('id_pelatihan', $p->id)->count();
                                             @endphp
-                                            <p>{{strip_tags($desc)}}...</p>
                                         <p class="mt-2">
                                         <span class="fw-bolder">Batas Pendaftaran : </span>{{$p->batas_daftar}}<br>
                                         <span class="fw-bolder">Tanggal Mulai : </span>{{$p->tgl_mulai}}<br>
                                         <span class="fw-bolder">Tanggal Selesai : </span>{{$p->tgl_akhir}}<br>
+                                        @if ($p->biaya != 0)
                                         <span class="fw-bolder">Biaya : </span>{{$p->biaya}} &nbsp; <span class="fw-bolder">||</span> &nbsp;
+                                        @endif
                                         <span class="fw-bolder">Kuota : </span>{{$daftarcount}}/{{$p->kuota}} orang</p>
-                                        <a data-bs-toggle="modal" data-bs-target="#pelatihandetail{{$p->id}}"
-                                        class="btn btn-outline-secondary waves-effect">Lihat Detail</a>
-                                        <a href="daftar/{{$p->id}}" class="btn btn-primary waves-effect">Daftar</a>
+                                        <a href="daftar/{{$p->id}}" class="btn btn-primary waves-effect">Detail</a>
                                     </div>
                                 </div>
                             </div>

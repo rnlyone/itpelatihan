@@ -42,12 +42,12 @@
                         <div class="row">
                             <div class="col-xl-6 col-lg-12">
                                 <div class="card">
-                                    <div class="card-header">
-                                    <h4 class="card-title">Info Kegiatan</h4>
-                                    <a href="/regis/{{$pelatihanid->id}}" class="btn btn-primary waves-effect waves-float waves-light">Daftar Kegiatan Ini</a>
-                                    </div>
+
                                     <div class="card-body">
                                         <div class="row">
+                                            <img class="card-img-top" src="{{asset('image/'.$pelatihanid->foto)}}" alt="Gambar Sertifikasi">
+                                            <div class="divider"><hr></div>
+                                            <h4 class="card-title">Info Kegiatan</h4>
                                             <div class="col-xl-6 col-md-6 col-12">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="disabledInput">Nama Kegiatan</label>
@@ -84,27 +84,24 @@
                                                         <input type="text" class="form-control" value="{{$pelatihanid->biaya}}" id="disabledInput" disabled="">
                                                     </div>
                                                 </div>
+                                                <div class="divider"><hr></div>
+                                                <div id="desch" hidden>
+                                                    {{$pelatihanid->deskripsi}}
+                                                </div>
+                                                <div id="desc">
+                                                </div>
+                                                <div class="card-header">
+                                                    <h4></h4>
+                                                    <a href="/regis/{{$pelatihanid->id}}" class="btn btn-primary waves-effect waves-float waves-light">Daftar</a>
+                                                    </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="card-title">Detail Kegiatan</h4>
-                                        </div>
-                                    <div class="card-body">
-                                        <img class="card-img-top" src="{{asset('image/'.$pelatihanid->foto)}}" alt="Gambar Sertifikasi">
-                                        <div id="desch" hidden>
-                                            {{$pelatihanid->deskripsi}}
-                                        </div>
-                                        <div id="desc">
-                                        </div>
-                                      </div>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
-                                      <h4 class="card-title">Daftar Pendaftar</h4>
+                                      <h4 class="card-title">List Pendaftar</h4>
                                     </div>
                                     <div class="card-body">
                                       <table class="datatables-basic table" id="daftarpendaftar">
@@ -112,7 +109,7 @@
                                             <tr>
                                               <th>No.</th>
                                               <th>Name</th>
-                                              <th>Fakultas</th>
+                                              <th>Unit</th>
                                               <th>Status</th>
                                             </tr>
                                           </thead>

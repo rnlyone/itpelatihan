@@ -43,7 +43,7 @@
                     <section id="card-demo-example">
                         <div class="row">
                             <!-- Centered Aligned Tabs starts -->
-                            <div class="col-xl-6 col-lg-12">
+                            <div class="col-xl-12 col-lg-12">
                               <div class="card">
                                 <div class="card-header">
                                   <h4 class="card-title">Form Pendaftaran</h4>
@@ -51,11 +51,11 @@
                                 <div class="card-body">
                                   <ul class="nav nav-tabs justify-content-center" role="tablist">
                                     <li class="nav-item">
-                                      <a class="btn nav-link" id="form-tab-mhs" data-bs-toggle="tab" href="#form-mhs" aria-controls="form-mhs" role="tab" aria-selected="true">Mahasiswa</a>
+                                      <a class="btn nav-link" id="form-tab-mhs" data-bs-toggle="tab" href="#form-mhs" aria-controls="form-mhs" role="tab" aria-selected="true"><h1>Mahasiswa</h1></a>
                                     </li>
                                     &nbsp;&nbsp;&nbsp;
                                     <li class="nav-item">
-                                      <a class="btn nav-link" id="form-tab-tendik" data-bs-toggle="tab" href="#form-tendik" aria-controls="form-tendik" role="tab" aria-selected="false">Tenaga Pendidik</a>
+                                      <a class="btn nav-link" id="form-tab-tendik" data-bs-toggle="tab" href="#form-tendik" aria-controls="form-tendik" role="tab" aria-selected="false"><h1>Tenaga Kependidikan</h1></a>
                                     </li>
                                   </ul>
                                     <div class="tab-content">
@@ -259,7 +259,7 @@
 
                                         <div class="tab-pane active" id="service-center" aria-labelledby="service-tab-center" role="tabpanel">
                                         <h3 class="text-center">
-                                            Pilih Salah Satu Form diatas
+                                            Pilih Jenis Pendaftar
                                         </h3>
                                         </div>
 
