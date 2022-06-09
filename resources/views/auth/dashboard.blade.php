@@ -320,6 +320,7 @@
                 // Populate hidden form on submit
                 var about = document.querySelector('input[id=inputdeskripsiinput]');
                 about.value = quill.root.innerHTML;
+                console.log(quill.root.innerHTML);
                 console.log("Submitted", $(form).serialize(), $(form).serializeArray());
             };
 			</script>

@@ -97,7 +97,6 @@ class PelatihanController extends Controller
 
             return back()->with('success', 'Pelatihan Telah Berhasil Ditambahkan');
         } catch (\Throwable $th) {
-            dd($r->deskripsi);
             return back()->with('error', 'Pelatihan Gagal Ditambahkan '. $th)->withInput();
         }
     }
