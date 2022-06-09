@@ -132,7 +132,7 @@
 
                     <label>Deskripsi: </label>
                     <div class="mb-1">
-                        <input id="inputdeskripsiinput" type="hidden" name="deskripsi" class="form-control" id="deskripsipelatihan">
+                        <input id="inputdeskripsiinput" type="hidden" name="deskripsi" class="form-control">
                         <div id="input-deskripsi" style="min-height: 160px;">{{old('deskripsi')}}</div>
                     </div>
 
@@ -319,8 +319,7 @@
                 form.onsubmit = function() {
                 // Populate hidden form on submit
                 var about = document.querySelector('input[id=inputdeskripsiinput]');
-                about.value = quill2.root.innerHTML;
-
+                about.value = quill.root.innerHTML;
                 console.log("Submitted", $(form).serialize(), $(form).serializeArray());
             };
 			</script>
