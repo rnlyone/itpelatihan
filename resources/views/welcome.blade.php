@@ -48,24 +48,23 @@
                                     <div class="card-body">
                                         <h4 class="card-title">{{$p->nama}}</h4>
                                             @php
-                                            $arr = str_split($p->deskripsi);
-                                            $desc = '';
-                                            if (count($arr) < 80) {
-                                                for($i = 0; $i < count($arr); $i++) { $desc .=$arr[$i]; }
-                                            } else {
-                                                for($i = 0; $i < 80; $i++) { $desc .=$arr[$i]; }
-                                            }
 
                                             $daftarcount = Pendaftar::all()->where('id_pelatihan', $p->id)->count();
                                             @endphp
                                         <p class="mt-2">
-                                        <span class="fw-bolder">Batas Pendaftaran : </span>{{$p->batas_daftar}}<br>
-                                        <span class="fw-bolder">Tanggal Mulai : </span>{{$p->tgl_mulai}}<br>
-                                        <span class="fw-bolder">Tanggal Selesai : </span>{{$p->tgl_akhir}}<br>
+                                            @php
+                                                $date = date_create($p->batas_daftar);
+                                                $datemulai = date_create($p->tgl_mulai);
+                                                $dateakhir = date_create($p->tgl_akhir);
+
+                                            @endphp
+                                        <span class="fw-bolder">Batas Pendaftaran : </span>{{date_format($date,"D, d/m/Y")}}<br>
+                                        <span class="fw-bolder">Tanggal Mulai : </span>{{date_format($datemulai,"D, d/m/Y")}}<br>
+                                        <span class="fw-bolder">Tanggal Selesai : </span>{{date_format($dateakhir,"D, d/m/Y")}}<br>
                                         @if ($p->biaya != 0)
                                         <span class="fw-bolder">Biaya : </span>{{$p->biaya}} &nbsp; <span class="fw-bolder">||</span> &nbsp;
                                         @endif
-                                        <span class="fw-bolder">Kuota : </span>{{$daftarcount}}/{{$p->kuota}} orang</p>
+                                        <span class="fw-bolder">Pendaftar : </span>{{$daftarcount}}/{{$p->kuota}} orang</p>
                                         <a href="daftar/{{$p->id}}" class="btn btn-primary waves-effect">Detail</a>
                                     </div>
                                 </div>
