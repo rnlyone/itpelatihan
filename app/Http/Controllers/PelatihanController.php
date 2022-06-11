@@ -208,7 +208,7 @@ class PelatihanController extends Controller
     {
         // $id = 1;
         $pelatihanid = Pelatihan::where('visible', 1)->where('id', $id)->first();
-        $pendaftar = Pendaftar::where('id_pelatihan', $id)->get();
+        $pendaftar = Pendaftar::where('id_pelatihan', $id)->where('status', '!=', 'ditolak')->get();
         return view('detail', ['pelatihanid' => $pelatihanid, 'pendaftar' => $pendaftar]);
     }
 

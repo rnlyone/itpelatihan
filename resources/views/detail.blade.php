@@ -101,7 +101,7 @@
                             <div class="col-xl-6 col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
-                                      <h4 class="card-title">List Pendaftar</h4>
+                                      <h4 class="card-title">List Peserta</h4>
                                     </div>
                                     <div class="card-body">
                                       <table class="datatables-basic table" id="daftarpendaftar">
@@ -121,7 +121,7 @@
                                                   <td>{{$p->fakultas}}</td>
                                                   <td>
                                                       @if ($p->status == 'belum_konfirmasi')
-                                                          <span class="badge bg-secondary">Belum</span>
+                                                          <span class="badge bg-secondary">Review</span>
                                                           @elseif ($p->status == 'diterima')
                                                           <span class="badge bg-success">Diterima</span>
                                                           @else
